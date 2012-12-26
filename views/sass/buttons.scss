@@ -1,0 +1,94 @@
+// Buttons styles
+//
+// :hover    - Hovering highlights.
+// :disabled - Disabled Style.
+// .primary  - Primary action button style.
+//
+// Styleguide 1.1
+
+@mixin gradient($start, $end){
+  background: $start;
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -moz-linear-gradient(top, $start, $end);
+  background: -o-linear-gradient($start, $end);
+  background: linear-gradient($start, $end);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+  zoom:1;
+}
+
+%button {
+  padding: 5px 15px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.button {
+  @extend %button;
+  @include gradient(#fefefe, #e6e6e6);
+  min-width: 120px;
+  border: 1px solid #d0d0d0;
+  color: #666;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  &:hover {
+    @include gradient(#f2f2f2, #E2E2E2);
+    border-color: #C5C5C5;
+  }
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.primary, 
+.primary:hover {
+  @extend .button;
+  @include gradient(#007fcc, #0045cc);
+  min-width: 120px;
+  border-color: #0062b8;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+// Smaller uuttons styles
+//
+// :hover               - Hovering highlights.
+// :disabled            - Disabled Style.
+// .small-primary       - Primary action button style.
+// .small-primary:hover - Primary action button hovering highlights 
+//
+// Styleguide 1.2
+
+.small {
+  @extend %button;
+  @include gradient(#fefefe, #e6e6e6);
+  border: 1px solid #d0d0d0;
+  color: #666;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.9);
+  font-size: 10px;
+  &:hover {
+    @include gradient(#f2f2f2, #E2E2E2);
+    border-color: #C5C5C5;
+  }
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.small-primary {
+  @extend .small;
+  @include gradient(#85d868, #61b145);
+  border-color: #74bb5a;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  &:hover {
+    @include gradient(#67cd43, #4c8c36);
+    border-color: #4a993e;
+  }
+}
